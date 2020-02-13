@@ -32,13 +32,13 @@ No Pinned Tasks
   </span>
 </nav> --}}
 {{!-- {{!-- <button {{on "click" this.toggleMe}}>ClickMe</button> --}}
-<p>Completed Tasks Count: {{this.results}}</p>
+<p class="completed-tasks">Completed Tasks Count: {{this.results}}</p>
 <img class="profile" src="assets/profile.png" />
 <BsTab as |tab|>
   <tab.pane @title="All Tasks">
     <TaskList @tasks={{this.model}} @passMe={{this.toggleMe}} />
   </tab.pane>
-  <tab.pane @title="Completed Tasks">
+  <tab.pane @title="Completed Tasks" class="tab-title">
     <CompleteTask @tasks={{this.model}} />
   </tab.pane>
 </BsTab>

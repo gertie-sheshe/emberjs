@@ -18,7 +18,7 @@
     {{@task.description}}
   </div>
 </li> --}}
-<li class="list-group-item {{if @task.isComplete "is-complete"}}">
+<li class="list-group-item {{if @task.isPinned "pinned"}} {{if @task.isComplete "is-complete"}}">
   <div class="d-flex">
     <label>
       <input type="checkbox" autocomplete="off">
@@ -28,10 +28,14 @@
     </h5>
     <div class="toggle-done ml-auto">
       <div class="btn-group btn-group-sm" role="group">
-        <img class="pin" src="assets/pin.png" />
+
+        <img {{on "click" this.pinMe}} class="pin {{if @task.isPinned "pinned"}}"
+          src={{ if @task.isPinned "assets/pin-selected.png" "assets/pin.png" }} />
+
         {{!-- <BsButton @type="secondary">Pin</BsButton> --}}
         <BsButton class="task-button" @type="primary" {{on "click" this.toggleBody}}>
           {{if @task.isComplete "Undo" "Done"}}</BsButton>
+
       </div>
     </div>
   </div>

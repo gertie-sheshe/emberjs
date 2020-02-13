@@ -37,6 +37,31 @@
 
 .pin {
   padding-right: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pinned {
+  background-color: #f7fcfd;
+}
+
+.card > .list-group:first-child .list-group-item {
+  border: 0px 0px 2px 0px;
+}
+
+.completed-tasks {
+  padding-left: 30px;
+}
+
+.not-found {
+  object-fit: cover;
+}
+
+.nav-tabs .nav-link {
+  color: #737579;
+  font-size: 18px;
 }
 
 .side-nav-list {
