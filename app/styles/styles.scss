@@ -1,15 +1,21 @@
 .main-container {
-  display: grid;
-  grid-template-columns: 20% auto;
-  height: 1200px;
+  display: flex;
+  height: 100vh;
 
   .side-nav {
     border-right: 1px black;
     background-color: #f9fafa;
+    flex: 20%;
   }
 
   .row {
     padding-top: 80px;
+    flex: 80%;
+  }
+
+  .profile {
+    position: relative;
+    left: 94%;
   }
 }
 
@@ -91,5 +97,27 @@
   text-decoration: none;
   &:focus {
     border-bottom: 3px solid blue;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1078px) {
+  .main-container {
+    flex-wrap: wrap;
+
+    .row {
+      padding-top: 10px;
+    }
+
+    .profile {
+      position: relative;
+      left: 40%;
+    }
+
+    .side-nav-list {
+      li a {
+        text-align: center;
+        padding-left: 20px;
+      }
+    }
   }
 }
