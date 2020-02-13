@@ -30,11 +30,8 @@
       <div class="btn-group btn-group-sm" role="group">
         <img class="pin" src="assets/pin.png" />
         {{!-- <BsButton @type="secondary">Pin</BsButton> --}}
-        {{#if @task.isComplete}}
-        <BsButton class="task-button" @type="primary" onClick={{action (mut @task.isComplete) false}}>Undo</BsButton>
-        {{else}}
-        <BsButton class="task-button" @type="primary" onClick={{action (mut @task.isComplete) true}}>Done</BsButton>
-        {{/if}}
+        <BsButton class="task-button" @type="primary" {{on "click" this.toggleBody}}>
+          {{if @task.isComplete "Undo" "Done"}}</BsButton>
       </div>
     </div>
   </div>
