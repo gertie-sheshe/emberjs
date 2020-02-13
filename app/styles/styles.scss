@@ -1,13 +1,95 @@
-.main-container{
+.main-container {
   display: grid;
   grid-template-columns: 20% auto;
+  height: 1200px;
 
   .side-nav {
     border-right: 1px black;
+    background-color: #f9fafa;
+  }
+
+  .row {
+    padding-top: 80px;
   }
 }
+
 .is-complete {
   opacity: 0.6;
   text-decoration: line-through;
   background: #d1d1d1;
+}
+
+.task-button {
+  background-color: #edf0f4;
+  color: #2b2f36;
+}
+
+.btn-group > .btn:not(:first-child),
+.btn-group > .btn-group:not(:first-child) > .btn {
+  border-radius: 20%;
+}
+
+.pin {
+  padding-right: 40px;
+}
+
+.side-nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li a {
+    display: block;
+    padding: 20px 40px 10px 125px;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+
+    &.active {
+      border-right: solid 6px blue;
+      font-style: bold;
+      color: blue;
+      background-color: #eceef0;
+    }
+
+    &:hover {
+      background-color: #eceef0;
+    }
+  }
+}
+
+.material-icons {
+  font-size: 18px;
+  position: relative;
+  top: 5px;
+  padding-right: 10px;
+}
+
+.anapanda-image {
+  padding: 100px 80px 80px 130px;
+}
+
+.task-title {
+  padding-left: 10px;
+}
+
+.nav-tabs .nav-link {
+  border-style: none;
+  margin-left: 30px;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  border-bottom: 3px solid blue;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-item.show .nav-link {
+  padding: 20px 20px 10px 20px;
+  color: black;
+  text-decoration: none;
+  &:focus {
+    border-bottom: 3px solid blue;
+  }
 }

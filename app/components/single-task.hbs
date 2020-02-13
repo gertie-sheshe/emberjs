@@ -1,4 +1,4 @@
-<li class="list-group-item {{if @task.isComplete "is-complete"}}">
+{{!-- <li class="list-group-item {{if @task.isComplete "is-complete"}}">
   <div class="d-flex">
     <h5 class="card-title flex-fill">
       {{@task.name}}
@@ -7,9 +7,33 @@
       <div class="btn-group btn-group-sm" role="group">
         <BsButton @type="secondary">Pin</BsButton>
         {{#if @task.isComplete}}
-          <BsButton @type="primary" onClick={{action (mut @task.isComplete) false}}>Undo</BsButton>
+        <BsButton @type="primary" onClick={{action (mut @task.isComplete) false}}>Undo</BsButton>
         {{else}}
-          <BsButton @type="primary" onClick={{action (mut @task.isComplete) true}}>Done</BsButton>
+        <BsButton @type="primary" onClick={{action (mut @task.isComplete) true}}>Done</BsButton>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="task-description">
+    {{@task.description}}
+  </div>
+</li> --}}
+<li class="list-group-item {{if @task.isComplete "is-complete"}}">
+  <div class="d-flex">
+    <label>
+      <input type="checkbox" autocomplete="off">
+    </label>
+    <h5 class="card-title flex-fill task-title">
+      {{@task.name}}
+    </h5>
+    <div class="toggle-done ml-auto">
+      <div class="btn-group btn-group-sm" role="group">
+        <img class="pin" src="assets/pin.png" />
+        {{!-- <BsButton @type="secondary">Pin</BsButton> --}}
+        {{#if @task.isComplete}}
+        <BsButton class="task-button" @type="primary" onClick={{action (mut @task.isComplete) false}}>Undo</BsButton>
+        {{else}}
+        <BsButton class="task-button" @type="primary" onClick={{action (mut @task.isComplete) true}}>Done</BsButton>
         {{/if}}
       </div>
     </div>
