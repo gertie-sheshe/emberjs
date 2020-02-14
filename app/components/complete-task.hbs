@@ -1,4 +1,5 @@
 <div class="card">
+  {{#if @results}}
   <ul class="list-group list-group-flush">
     {{#each @tasks as |task|}}
     {{#if task.isComplete}}
@@ -6,5 +7,8 @@
     {{/if}}
     {{/each}}
   </ul>
+  {{else}}
+  <img class="not-found" src="assets/not-found.png">
+  {{/if}}
   {{!-- <img class="notfound" src="assets/not-found.png" /> --}}
 </div>
