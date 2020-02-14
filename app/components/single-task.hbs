@@ -21,7 +21,8 @@
 <li class="list-group-item {{if @task.isPinned "pinned"}} {{if @task.isComplete "is-complete"}}">
   <div class="d-flex">
     <label>
-      <input type="checkbox" autocomplete="off">
+      <input {{on "click" this.toggleBody}} type="checkbox" autocomplete="off"
+        checked={{if @task.isComplete "true" ""}}>
     </label>
     <h5 class="card-title flex-fill task-title">
       {{@task.name}}
