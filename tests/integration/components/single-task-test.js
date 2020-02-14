@@ -1,26 +1,35 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import { hbs } from "ember-cli-htmlbars";
 
-module('Integration | Component | single-task', function(hooks) {
+module("Integration | Component | single-task", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test("it renders", async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<SingleTask />`);
+    this.setProperties({
+      task: {
+        id: 1,
+        name: "Solve all github issues",
+        description: "Solve the world's Github issues.",
+        isComplete: false,
+        isPinned: false,
+        creator: 2
+      }
+    });
 
-    assert.equal(this.element.textContent.trim(), '');
+    await render(hbs`<SingleTask @task={{this.task}}/>`);
 
-    // Template block usage:
-    await render(hbs`
-      <SingleTask>
-        template block text
-      </SingleTask>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom("h5").hasClass("card-title");
+    assert.dom("h5").hasText("Solve all github issues");
+    assert.dom("button").hasClass("task-button");
+    assert.dom("button").hasText("Done");
+    assert
+      .dom("div .task-description")
+      .hasText("Solve the world's Github issues.");
+    assert.dom("img").exists();
   });
 });
